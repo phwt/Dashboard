@@ -1,6 +1,6 @@
 <template>
   <div class="control-card col-12 col-md-6 p-1">
-    <div class="row wrapper">
+    <div :class="['row wrapper', {'isOff': !isOn}]">
       <div class="col-4">
         <img class="w-100" :src="image" alt="">
       </div>
@@ -34,5 +34,10 @@ export default {
   display: flex;
   justify-content: center;
   align-items: center;
+}
+
+.isOff {
+  background: #727272!important;
+  color: #fff;
 }
 </style>

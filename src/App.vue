@@ -9,13 +9,11 @@
       </div>
 
       <div class="row">
-        <data-card name="Temperature" value="20"/>
-        <data-card name="Time" value="13:00"/>
-        <data-card name="Status" value="Connected"/>
+        <data-card v-for="data in dataCollection" :key="data.name" :name="data.name" :value="data.value"/>
       </div>
+
       <div class="row">
-        <control-card device="Fan" :isOn="true" :image="require('./assets/fan.png')"/>
-        <control-card device="Light" :isOn="true" :image="require('./assets/light.png')"/>
+        <control-card v-for="device in deviceCollection" :key="device.device" :device="device.device" :isOn="device.isOn" :image="device.image"/>
       </div>
 
     </div>
@@ -27,7 +25,20 @@ import DataCard from '@/components/DataCard'
 import ControlCard from '@/components/ControlCard'
 export default {
   name: 'app',
-  components: {DataCard, ControlCard}
+  components: {DataCard, ControlCard},
+  data () {
+    return {
+      dataCollection: [
+        {name: 'Temperature', value: 30},
+        {name: 'Time', value: '13:00'},
+        {name: 'Status', value: 'Connected'}
+      ],
+      deviceCollection: [
+        {device: 'Fan', isOn: false, image: require('./assets/fan.png')},
+        {device: 'Light', isOn: false, image: require('./assets/light.png')},
+      ]
+    }
+  }
 }
 </script>
 
