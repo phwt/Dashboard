@@ -13,7 +13,7 @@
       </div>
 
       <div class="row">
-        <control-card v-for="device in deviceCollection" :key="device.device" :device="device.device" :isOn="device.isOn" :image="device.image"/>
+        <control-card @isClicked="triggerState(device)" v-for="device in deviceCollection" :key="device.device" :device="device.device" :isOn="device.isOn" :image="device.image"/>
       </div>
 
     </div>
@@ -37,6 +37,12 @@ export default {
         {device: 'Fan', isOn: false, image: require('./assets/fan.png')},
         {device: 'Light', isOn: false, image: require('./assets/light.png')},
       ]
+    }
+  },
+  methods: {
+    triggerState (device) {
+      device.isOn = !device.isOn
+      console.log(device)
     }
   }
 }
