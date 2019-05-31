@@ -9,11 +9,30 @@
       </div>
 
       <div class="row">
-        <data-card v-for="data in dataCollection" :key="data.name" :name="data.name" :value="data.value"/>
+
+        <!--กล่องแสดงข้อมูล-->
+        <data-card
+        v-for="data in dataCollection"
+        :key="data.name"
+        :name="data.name"
+        :value="data.value"
+        />
+        <!--กล่องแสดงข้อมูล-->
+
       </div>
 
       <div class="row">
-        <control-card @isClicked="triggerState(device)" v-for="device in deviceCollection" :key="device.device" :device="device.device" :isOn="device.isOn" :image="device.image"/>
+
+        <!--กล่องปุ่มควบคุม-->
+        <control-card
+        @isClick="triggerState(device)"
+        v-for="device in deviceCollection"
+        :key="device.name"
+        :name="device.name" 
+        :isOn="device.isOn" 
+        :image="device.image"/>
+        <!--กล่องปุ่มควบคุม-->
+        
       </div>
 
     </div>
@@ -21,28 +40,32 @@
 </template>
 
 <script>
+import { database } from 'firebase'
 import DataCard from '@/components/DataCard'
 import ControlCard from '@/components/ControlCard'
 export default {
   name: 'app',
-  components: {DataCard, ControlCard},
+  components: {
+    DataCard,
+    ControlCard
+  },
   data () {
     return {
       dataCollection: [
-        {name: 'Temperature', value: 30},
-        {name: 'Time', value: '13:00'},
-        {name: 'Status', value: 'Connected'}
+        {name: 'Temperature', value: 20},
+        {name: 'Time', value: "13:00"},
+        {name: 'Status', value: "Connected"}
       ],
       deviceCollection: [
-        {device: 'Fan', isOn: false, image: require('./assets/fan.png')},
-        {device: 'Light', isOn: false, image: require('./assets/light.png')},
+        {name: 'Fan', isOn: false, image: require('./assets/fan.png')},
+        {name: 'Light', isOn: true, image: require('./assets/light.png')}
       ]
     }
   },
   methods: {
     triggerState (device) {
       device.isOn = !device.isOn
-      console.log(device)
+      database().ref(device.name).set(device.isOn)
     }
   }
 }

@@ -1,11 +1,15 @@
 <template>
-  <div @click="handleClick" class="control-card col-12 col-md-6 p-1">
+  <div @click="handleClick" class="control-card col-6 p-1">
     <div :class="['row wrapper', {'isOff': !isOn}]">
       <div class="col-4">
         <img class="w-100" :src="image" alt="">
       </div>
       <div class="col-8 center">
-        <p>{{ device }} is <b>{{ isOn }}</b></p>
+        <p>
+          {{ name }} is 
+          <b v-if="isOn">on</b>
+          <b v-else>off</b>
+        </p>
       </div>
     </div>
   </div>
@@ -14,10 +18,10 @@
 <script>
 export default {
   name: 'ControlCard',
-  props: ['device', 'isOn', 'image'],
+  props: ['name', 'isOn', 'image'],
   methods: {
     handleClick () {
-      this.$emit('isClicked')
+      this.$emit('isClick')
     }
   }
 }
@@ -34,15 +38,14 @@ export default {
     margin-bottom: 0;
   }
 }
-
 .center {
   display: flex;
   justify-content: center;
   align-items: center;
 }
-
 .isOff {
-  background: #727272!important;
+  background: #777777!important;
   color: #fff;
 }
 </style>
+

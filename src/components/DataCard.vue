@@ -1,6 +1,6 @@
 <template>
-  <div class="col-12 col-md-4">
-    <small>{{  name }}</small>
+  <div class="col-4">
+    <h5>{{ name }}</h5>
     <h2>{{ value }}</h2>
   </div>
 </template>
