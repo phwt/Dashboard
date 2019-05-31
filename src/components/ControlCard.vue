@@ -1,6 +1,6 @@
 <template>
   <div @click="push" class="control-card col-6 p-1">
-    <div :class="['row wrapper', {'isOff': !offClass}]">
+    <div :class="['row wrapper', {'isOff': offClass}]">
       <div class="col-4">
         <img class="w-100" :src="image" alt="">
       </div>
@@ -22,29 +22,29 @@ export default {
   props: ['name', 'path', 'image'],
   data () {
     return {
-      status: null
+      isOn: null
     }
   },
   mounted () {
     let data = database().ref(this.path)
     let self = this
     data.on('value', function(snapshot) {
-      self.status = snapshot.val()
+      self.isOn = snapshot.val()
     })
   },
   methods: {
     push () {
       console.log('Push!')
-      if (this.status == "on") {
-        database().ref(this.path).set('off')
+      if (this.isOn == true) {
+        database().ref(this.path).set(false)
       } else {
-        database().ref(this.path).set('on')
+        database().ref(this.path).set(true)
       }
     }
   },
   computed: {
     offClass () {
-      if (this.status == "on") return false
+      if (this.isOn) return false
       else return true
     }
   }

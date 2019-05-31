@@ -11,10 +11,7 @@
       <div class="row">
 
         <!--กล่องแสดงข้อมูล-->
-        <data-card
-        name="Temperature"
-        path="temperature"
-        />
+        <data-card name="Temperature" path="temperature"/>
         <!--กล่องแสดงข้อมูล-->
 
       </div>
@@ -22,11 +19,8 @@
       <div class="row">
 
         <!--กล่องปุ่มควบคุม-->
-        <control-card
-        name="Fan"
-        path="fan"
-        :image="require('./assets/fan.png')"
-        />
+        <control-card name="Fan" path="fan" :image="require('./assets/fan.png')"/>
+        <control-card name="Light" path="light" :image="require('./assets/light.png')"/>
         <!--กล่องปุ่มควบคุม-->
         
       </div>
