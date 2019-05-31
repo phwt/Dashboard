@@ -1,29 +1,17 @@
-# iot-firebase
+# IoT Dashboard
+ในการควบคุมข้อมูลบน Firebase Realtime Database เราจะใช้ Web Application เพื่ออำนวยความสะดวกให้น้อง ๆ ได้ทำงานได้ง่ายขึ้น (และสวย เหมือนพี่)
 
-## Project setup
+## วิธีการ Set Up ครั้งแรก
 ```
-yarn install
+yarn
 ```
 
-### Compiles and hot-reloads for development
+### ในการพัฒนาเว็บ เราใช้คำสั่งนี้เพื่อทำงานให้ง่ายขึ้น (เช่น Hot Reload)
 ```
 yarn run serve
 ```
 
-### Compiles and minifies for production
+### เวลาทำเสร็จแล้ว เราใช้คำสั่งนี้เพื่อเตรียมเว็บขึ้น Hosting
 ```
 yarn run build
 ```
-
-### Run your tests
-```
-yarn run test
-```
-
-### Lints and fixes files
-```
-yarn run lint
-```
-
-### Customize configuration
-See [Configuration Reference](https://cli.vuejs.org/config/).
