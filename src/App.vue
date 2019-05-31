@@ -12,10 +12,8 @@
 
         <!--กล่องแสดงข้อมูล-->
         <data-card
-        v-for="data in dataCollection"
-        :key="data.name"
-        :name="data.name"
-        :value="data.value"
+        name="Temperature"
+        path="temperature"
         />
         <!--กล่องแสดงข้อมูล-->
 
@@ -25,12 +23,10 @@
 
         <!--กล่องปุ่มควบคุม-->
         <control-card
-        @isClick="triggerState(device)"
-        v-for="device in deviceCollection"
-        :key="device.name"
-        :name="device.name" 
-        :isOn="device.isOn" 
-        :image="device.image"/>
+        name="Fan"
+        path="fan"
+        :image="require('./assets/fan.png')"
+        />
         <!--กล่องปุ่มควบคุม-->
         
       </div>
@@ -40,7 +36,6 @@
 </template>
 
 <script>
-import { database } from 'firebase'
 import DataCard from '@/components/DataCard'
 import ControlCard from '@/components/ControlCard'
 export default {
@@ -48,25 +43,6 @@ export default {
   components: {
     DataCard,
     ControlCard
-  },
-  data () {
-    return {
-      dataCollection: [
-        {name: 'Temperature', value: 20},
-        {name: 'Time', value: "13:00"},
-        {name: 'Status', value: "Connected"}
-      ],
-      deviceCollection: [
-        {name: 'Fan', isOn: false, image: require('./assets/fan.png')},
-        {name: 'Light', isOn: true, image: require('./assets/light.png')}
-      ]
-    }
-  },
-  methods: {
-    triggerState (device) {
-      device.isOn = !device.isOn
-      database().ref(device.name).set(device.isOn)
-    }
   }
 }
 </script>
