@@ -40,7 +40,8 @@ export default {
     ControlCard
   },
   mounted() {
-    var bgset = ["bg-success", "bg-danger", "bg-warning", "bg-primary"];
+    var bgset = ["bg-primary", "bg-danger", "bg-success", "bg-warning"];
+    var bgsets = ["bg-primary", "bg-danger", "bg-success", "bg-warning"];
     $(document).ready(function() {
       $("#game-slot").hide();
 
@@ -62,7 +63,7 @@ export default {
           $(".circle").each(function(index) {
             var curbg = bgset[Math.floor(Math.random() * (4 - index))];
             if (bgset.indexOf(curbg) > -1) {
-              answer.push(curbg);
+              answer.push(bgsets.indexOf(curbg));
               bgset.splice(bgset.indexOf(curbg), 1);
             }
             $(this)
