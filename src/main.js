@@ -6,13 +6,13 @@ import firebase from 'firebase'
 Vue.config.productionTip = false
 
 const firebaseConfig = {
-  apiKey: "AIzaSyAhn6sfeO1M9iNkQq38uBlHhNBZ4UQh0_U",
-  authDomain: "iot-itcamp.firebaseapp.com",
-  databaseURL: "https://iot-itcamp.firebaseio.com",
-  projectId: "iot-itcamp",
-  storageBucket: "iot-itcamp.appspot.com",
-  messagingSenderId: "722034961108",
-  appId: "1:722034961108:web:4543e2e475f7e74c"
+  apiKey: "AIzaSyDVCn3JUljbfnOQss_wsBc0b-v26oIDwaU",
+  authDomain: "iot-annymour.firebaseapp.com",
+  databaseURL: "https://iot-annymour.firebaseio.com",
+  projectId: "iot-annymour",
+  storageBucket: "iot-annymour.appspot.com",
+  messagingSenderId: "525446190743",
+  appId: "1:525446190743:web:e28f968b6b238b96"
 };
 firebase.initializeApp(firebaseConfig)
 
