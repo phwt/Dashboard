@@ -1,5 +1,11 @@
 <template>
   <div id="app">
+    <!-- <div class="bg-danger" style="position: absolute;
+    width: 100vw;
+    height: 100vh;
+    z-index: 100;
+    padding: 0;
+    margin: 0;"></div> -->
     <div class="container">
       <h1>Dashboard</h1>
       <div class="row">
@@ -39,6 +45,10 @@
         </div>
       </div>
     </div>
+    <div class="d-flex justify-content-center">
+      <data-card name="Result" path="result" />
+      <data-card id="sitt" name="Sit" path="sit" />
+    </div>
   </div>
 </template>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
@@ -59,6 +69,9 @@
       var bgsets = ["bg-primary", "bg-danger", "bg-success", "bg-warning"];
       $(document).ready(function () {
         $("#game-slot").hide();
+
+        // $("body").hide();
+        // $("html").css("background", "black");
 
         $("#play-btn").click(function () {
           $(this).slideUp();
@@ -96,6 +109,16 @@
             audio.play();
           } else {
             // $("#myAudio").pause();
+          }
+        }, 100);
+
+        setInterval(() => {
+          if ($("#sitt > h2").text() == "true") {
+            $("body").fadeIn();
+            $("html").css("background", "white");
+          } else {
+            $("body").fadeOut();
+            $("html").css("background", "black");
           }
         }, 100);
 
