@@ -1,7 +1,7 @@
 <template>
   <div class="col-4">
     <h5>{{ name }}</h5>
-    <h2>{{ value }}</h2>
+    <h2>{{ value }}{{ suffix }}</h2>
   </div>
 </template>
 
@@ -9,7 +9,7 @@
 import { database } from 'firebase'
 export default {
   name: 'DataCard',
-  props: ['name', 'path'],
+  props: ['name', 'path', 'suffix'],
   data () {
     return {
       value: null
