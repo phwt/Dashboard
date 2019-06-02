@@ -90,36 +90,6 @@
           }, 1000);
         });
 
-        $("#play-btn").click(function () {
-          $(this).slideUp();
-          $("#game-slot").slideDown();
-
-          var runRand = setInterval(() => {
-            $(".circle").each(function (index) {
-              var curbg = bgset[Math.floor(Math.random() * index)];
-              $(this)
-                .removeClass()
-                .addClass("circle " + curbg);
-            });
-          }, 150);
-          var answer = [];
-          setTimeout(() => {
-            clearInterval(runRand);
-            $(".circle").each(function (index) {
-              var curbg = bgset[Math.floor(Math.random() * (4 - index))];
-              if (bgset.indexOf(curbg) > -1) {
-                answer.push(bgsets.indexOf(curbg));
-                bgset.splice(bgset.indexOf(curbg), 1);
-              }
-              $(this)
-                .removeClass()
-                .addClass("circle " + curbg);
-            });
-            console.log("this" + answer);
-            database().ref('game/answer').set(JSON.stringify(answer))
-          }, 1000);
-        });
-
         setInterval(() => {
           if ($("#musichere > h2").text() == "ON") {
             var audio = new Audio('https://www.w3schools.com/tags/horse.mp3');
